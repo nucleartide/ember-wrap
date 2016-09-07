@@ -1,0 +1,18 @@
+{
+  "name": "ember-wrap",
+  "version": "0.1.0",
+  "description": "Wrap ES6 node modules for use in Ember projects",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nucleartide/ember-wrap.git"
+  },
+  "author": "Jason Tu <jasontu4@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nucleartide/ember-wrap/issues"
+  },
+  "homepage": "https://github.com/nucleartide/ember-wrap#readme",
+  "bin": {
+    "wrap": "bin/wrap"
+  }
+}
