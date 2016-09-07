@@ -1,6 +1,6 @@
 {
   "name": "ember-wrap",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Import node modules that use ES6 into your Ember projects",
   "repository": {
     "type": "git",
