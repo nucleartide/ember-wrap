@@ -41,7 +41,7 @@ window['git-data'] // => undefined
 ```
 
 If necessary, you can run `wrap` in npm's postinstall hook. This is useful if
-you want to keep a dependency up-to-date.
+you want to keep a dependency up-to-date. (Place this in `package.json`.)
 
 ```json
 {
