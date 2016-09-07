@@ -16,24 +16,26 @@ usual.
 $ npm install -g ember-wrap
 ```
 
-## Use
+## Example
 
-Within an Ember project,
+Let's try installing [git-data][3], which is a module that uses ES6.
+
+Within an Ember project:
 
 ```bash
-$ npm install git-data # this module uses ES6
+$ npm install git-data
 $ wrap git-data
 $ ls vendor/ # now has git-data.js and git-data-shim.js
 ```
 
-You should now add the following to your `ember-cli-build.js`:
+Add the following to your `ember-cli-build.js`:
 
 ```js
 app.import('vendor/git-data.js')
 app.import('vendor/git-data-shim.js')
 ```
 
-Now you can import the module freely in your Ember project:
+And import the module freely in your Ember project:
 
 ```js
 import GitData from 'git-data'
@@ -82,4 +84,5 @@ MIT
 
 [1]: https://github.com/ef4/ember-browserify/issues/97
 [2]: https://github.com/ef4/ember-browserify#using-ember-browserify-in-addons
+[3]: https://github.com/nucleartide/git-data.js
 
