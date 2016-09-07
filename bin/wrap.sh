@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+
+#
+# Constants.
+#
+
+MODULE_FILE='__module__.js'
+outdir='vendor/'
+
+#
+# Generate a standalone bundle for a node module.
+#
+# Works with ES6.
+#
+
+wrap() {
+  touch $MODULE_FILE
+  echo "module.exports = require('$1')" > $MODULE_FILE
+
+  npm ls browserify || npm install browserify
+  npm ls babelify || npm install babelify
+  npm ls babel-preset-es2015 || npm install babel-preset-es2015
+
+  mkdir -p $outdir
+  $(npm bin)/browserify $MODULE_FILE \
+    -g [ babelify --presets [ es2015 ] ] \
+    -o "$outdir/$1.js" \
+    -s $1
+
+  cat <<WTF >"$outdir/${1}-shim.js"
+(function() {
+  var module = window['$1']
+  delete window['$1']
+
+  define('$1', [], function() {
+    return { 'default': module }
+  })
+})()
+WTF
+
+  rm $MODULE_FILE
+}
+
+#
+# Output usage.
+#
+
+usage() {
+  echo "
+  Usage: wrap [options] <module>
+
+  Options:
+
+    -o, --outdir <dirname>    output directory
+
+  Examples:
+
+    $ npm install lodash
+    $ wrap lodash
+
+    $ npm install moment
+    $ wrap moment
+
+    $ wrap --outdir somedir/ lodash
+  "
+  exit
+}
+
+#
+# Display "not installed" message.
+#
+
+not_installed() {
+  echo "Module \"$1\" isn't installed. Try \`npm install $1\`, then try again."
+}
+
+# module name required
+
+[[ -z "$1" ]] && usage
+
+# parse args
+
+while test $# -ne 0; do
+  arg=$1; shift
+  case $arg in
+    -o|--outdir) outdir=$1; shift ;;
+    -h|--help) usage ;;
+    *) npm ls $arg && wrap $arg || not_installed $arg ;;
+  esac
+done
