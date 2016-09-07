@@ -51,7 +51,9 @@ usage() {
 
   Options:
 
-    -o, --outdir <dirname>    output directory
+    -o, --outdir <dirname>    [default: vendor/]
+
+      Output directory.
 
   Examples:
 

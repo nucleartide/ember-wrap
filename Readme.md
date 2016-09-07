@@ -62,7 +62,9 @@ you want to keep a dependency up-to-date.
 
   Options:
 
-    -o, --outdir <dirname>    output directory
+    -o, --outdir <dirname>    [default: vendor/]
+
+      Output directory.
 
   Examples:
 
