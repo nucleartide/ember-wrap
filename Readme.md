@@ -21,7 +21,7 @@ $ npm install -g ember-wrap
 Within an Ember project,
 
 ```bash
-$ npm install git-data
+$ npm install git-data # this module uses ES6
 $ wrap git-data
 $ ls vendor/ # now has git-data.js and git-data-shim.js
 ```
@@ -41,9 +41,10 @@ window['git-data'] // => undefined
 ```
 
 If necessary, you can run `wrap` in npm's postinstall hook. This is useful if
-you want to keep a dependency up-to-date. (Place this in `package.json`.)
+you want to keep a dependency up-to-date.
 
-```json
+```js
+// place this in package.json
 {
   "scripts": {
     "postinstall": "wrap git-data"
