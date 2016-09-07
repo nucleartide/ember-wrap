@@ -1,7 +1,7 @@
 {
   "name": "ember-wrap",
   "version": "0.1.0",
-  "description": "Wrap ES6 node modules for use in Ember projects",
+  "description": "Import node modules that use ES6 into your Ember projects",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nucleartide/ember-wrap.git"

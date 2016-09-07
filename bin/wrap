@@ -55,13 +55,15 @@ usage() {
 
   Examples:
 
-    $ npm install lodash
-    $ wrap lodash
+    Note that the modules below use ES6 features.
 
-    $ npm install moment
-    $ wrap moment
+    $ npm install git-data
+    $ wrap git-data
 
-    $ wrap --outdir somedir/ lodash
+    $ npm install joi
+    $ wrap joi
+
+    $ wrap --outdir somedir/ joi
   "
   exit
 }
