@@ -17,12 +17,14 @@ wrap() {
   touch $MODULE_FILE
   echo "module.exports = require('$1')" > $MODULE_FILE
 
-  npm ls browserify || npm install browserify
+  # Use a specific version of Browserify, so we can be sure that `bin/cmd.js`
+  # is the Browserify binary.
+  npm ls browserify || npm install browserify@13.1.0
   npm ls babelify || npm install babelify
   npm ls babel-preset-es2015 || npm install babel-preset-es2015
 
   mkdir -p $outdir
-  $(npm bin)/browserify $MODULE_FILE \
+  ./node_modules/browserify/bin/cmd.js $MODULE_FILE \
     -g [ babelify --presets [ es2015 ] ] \
     -o "$outdir/$1.js" \
     -s $1
