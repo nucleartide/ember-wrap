@@ -1,4 +1,4 @@
-**This project is deprecated. I would recommend using something like [ember-cli-node-modules-to-vendor](https://github.com/kellyselden/ember-cli-node-modules-to-vendor) or [ember-cli-node-assets](https://github.com/dfreeman/ember-cli-node-assets). Importing modules is always going to be a pain in JavaScript land, since there are so many ways to do things.**
+**Note: don't use this, read this [StackOverflow answer](https://stackoverflow.com/a/36343295/1112407) instead.**
 
 # ember-wrap
 
